@@ -30,6 +30,12 @@ class TicTacToe:
         return self.board.count(' ')
         #returns the nuber of spaces in the board list
 
+    def make_move(self, square, letter):
+        if self.board[square] == ' ':
+            self.board[square] = letter
+            return True
+        return False
+
 def play(game, x_player, o_player, print_game = True):
     if print_game:
         game.print_board_nums()
@@ -37,6 +43,17 @@ def play(game, x_player, o_player, print_game = True):
     letter = 'X'
     # itertate through the empty squares
     while game.empty_squares():
-        pass
+        # take move from the appropriate player
+        if letter == 'O':
+            square = o_player.get_move
+        else:
+            square = x_player.get_move
+        
+        if game.make_move(square, letter):
+            if print_game:
+                print(letter + f' makes a move to square {square}')
+                game.print_board()  # reprint the board
+                print('')
+        
 
 
