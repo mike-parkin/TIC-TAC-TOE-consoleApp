@@ -9,6 +9,7 @@ class Player:
     def get_move(self, game):
         pass
 
+# RandomComputer & Human inherits, functions from the class Player with the super() keyword
 class RandomComputerPlayer(Player):
     def __init__(self, letter):
         super().__init__(letter)
