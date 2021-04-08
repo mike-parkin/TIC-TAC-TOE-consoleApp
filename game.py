@@ -24,7 +24,11 @@ class TicTacToe:
         # ^^^ this line will return the same results as the for loop
     
     def empty_squares(self):
-
+        return ' ' in self.board
+    
+    def num_empty_squares(self):
+        return self.board.count(' ')
+        #returns the nuber of spaces in the board list
 
 def play(game, x_player, o_player, print_game = True):
     if print_game:
@@ -32,5 +36,7 @@ def play(game, x_player, o_player, print_game = True):
     #starting move goes to 'X'    
     letter = 'X'
     # itertate through the empty squares
+    while game.empty_squares():
+        pass
 
 
