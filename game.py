@@ -20,6 +20,17 @@ class TicTacToe:
             if x == ' ':
                 moves.append(i)
         return moves
-
         # return[i for i, spot in enumerate(self.board) if spot == ' ']
         # ^^^ this line will return the same results as the for loop
+    
+    def empty_squares(self):
+
+
+def play(game, x_player, o_player, print_game = True):
+    if print_game:
+        game.print_board_nums()
+    #starting move goes to 'X'    
+    letter = 'X'
+    # itertate through the empty squares
+
+
