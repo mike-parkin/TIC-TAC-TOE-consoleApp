@@ -80,7 +80,6 @@ def play(game, x_player, o_player, print_game = True):
             square = x_player.get_move(game)
         
         if game.make_move(square, letter):
-            print('in if statement')
             if print_game:
                 print(letter + f' makes a move to square {square}')
                 game.print_board()  # reprint the board
