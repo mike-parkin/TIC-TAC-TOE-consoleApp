@@ -38,7 +38,7 @@ class HumanPlayer(Player):
         return val
 
 # This player use the minimax algorithm
-def GeniusComputerPlayer(Player): 
+class GeniusComputerPlayer(Player): 
     def __init__(self, letter):
         super().__inti__(letter)
     
@@ -68,3 +68,23 @@ def GeniusComputerPlayer(Player):
             best = {'position': None, 'score': -math.inf}
         else:
             best = {'position': None, 'score': math.inf}
+        
+        for possible_move in state.available_moves():
+            # make a move, and try that spot
+            state.make_move(possible_move, player)
+            sim_score = self.minimax(state, other_player)
+            # unod that move
+            state.board[possible_move] = ' '
+            state.current_winner = None
+            sim_score['posistion'] = possible_move
+            # update the dictionaries
+            # maximise the max_player
+            if player == max_player:
+                if sim_score['score'] > best['score']:
+                    best = sim_score
+            # minise the other_player
+            else:
+                if sim_score['score'] < best['score']:
+                    best = sim_score
+            
+        return best
