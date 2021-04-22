@@ -40,13 +40,14 @@ class HumanPlayer(Player):
 # This player use the minimax algorithm
 class GeniusComputerPlayer(Player): 
     def __init__(self, letter):
-        super().__inti__(letter)
+        super().__init__(letter)
     
     def get_move(self, game):
-        if len(game.available_moves() == 9):
+        if len(game.available_moves()) == 9:
             square = random.choice(game.available_moves())
         else:
-            square = self.minimax(game, self.letter)
+            square = self.minimax(game, self.letter)['position']
+        print(square)
         return square
 
     def minimax(self, state, player):
@@ -76,7 +77,7 @@ class GeniusComputerPlayer(Player):
             # unod that move
             state.board[possible_move] = ' '
             state.current_winner = None
-            sim_score['posistion'] = possible_move
+            sim_score['position'] = possible_move
             # update the dictionaries
             # maximise the max_player
             if player == max_player:
